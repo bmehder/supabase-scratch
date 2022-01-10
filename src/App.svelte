@@ -9,6 +9,8 @@
   supabase.auth.onAuthStateChange((_, session) => {
     user.set(session.user)
   })
+
+  $: console.log($user)
 </script>
 
 <main>

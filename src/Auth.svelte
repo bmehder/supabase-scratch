@@ -1,19 +1,22 @@
 <script>
   import { supabase } from './supabaseClient'
 
-  let loading = false
-  let email
+  let isLoading = false
+  let email = null
 
   const handleLogin = async () => {
     try {
-      loading = true
+      isLoading = true
+
       const { error } = await supabase.auth.signIn({ email })
+
       if (error) throw error
+
       alert('Check your email for the login link!')
     } catch (error) {
       alert(error.error_description || error.message)
     } finally {
-      loading = false
+      isLoading = false
     }
   }
 </script>
@@ -34,8 +37,8 @@
       <input
         type="submit"
         class="button block"
-        value={loading ? 'Loading' : 'Send magic link'}
-        disabled={loading}
+        value={isLoading ? 'Loading' : 'Send magic link'}
+        disabled={isLoading}
       />
     </div>
   </div>

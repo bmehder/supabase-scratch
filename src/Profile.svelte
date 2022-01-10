@@ -22,9 +22,9 @@
       if (error && status !== 406) throw error
 
       if (data) {
-        username = data.username
-        website = data.website
-        avatar_url = data.avatar_url
+        username = data?.username
+        website = data?.website
+        avatar_url = data?.avatar_url
       }
     } catch (error) {
       alert(error.message)
@@ -52,7 +52,7 @@
 
       if (error) throw error
     } catch (error) {
-      alert(error.message)
+      console.log(error.message)
     } finally {
       loading = false
     }
@@ -64,7 +64,7 @@
       let { error } = await supabase.auth.signOut()
       if (error) throw error
     } catch (error) {
-      alert(error.message)
+      console.log(error.message)
     } finally {
       loading = false
     }
