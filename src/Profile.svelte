@@ -67,6 +67,7 @@
       console.log(error.message)
     } finally {
       loading = false
+      alert('You have been signed out. Refresh to log back in.')
     }
   }
 </script>
